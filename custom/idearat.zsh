@@ -74,6 +74,7 @@ alias vimtmux="vi ${HOME}/.tmux.conf"
 
 # vi-related config management
 alias vimvi="vi ${HOME}/.vimrc.after"
+alias vimlocal="vi ${HOME}/.localrc"
 alias vimcolor="vi ${HOME}/.vim/bundle/idearat/colors/idearat"
 alias vimsyntax="vi ${HOME}/.vim/bundle/idearat/syntax/javascript.vim"
 
@@ -139,17 +140,6 @@ alias cdtmp="cd ${HOME}/tmp"
 alias cdtri="cd ${HOME}/Documents/SS\ Docs/Triathlon"
 alias cdusb="cd ${USB_ROOT}"
 
-# Show time/date in easy form.
-alias now='date +"%T"'
-alias nowtime='now'
-alias nowdate='date +"%d-%m-%Y"'
-
-# Output decent size information
-alias sizes='du -s *'
-
-# NB: this relies on vim config to put temp files in ${HOME}/tmp
-alias swapped='find ${HOME}/tmp -name '"'*.sw[op]'"' -print'
-
 # Seriously, I'm never gonna use these, but I do use 3 and 5 for aliasing into
 # specific versions of TIBET.
 unalias 1
@@ -163,7 +153,26 @@ unalias 8
 unalias 9
 
 # ---
-# utilities
+# Utility Aliases
+# ---
+
+alias myip="curl ipv4.icanhazip.com"
+# Show time/date in easy form.
+alias now='date +"%T"'
+alias nowtime='now'
+alias nowdate='date +"%d-%m-%Y"'
+
+alias rmorig="\\ls -a | grep '_orig$' | xargs -n 1 rm -rf"
+alias rmzcomp="\\ls -a | grep 'zcompdump' | xargs -n 1 rm -rf"
+
+# Output decent size information
+alias sizes='du -s *'
+
+# NB: this relies on vim config to put temp files in ${HOME}/tmp
+alias swapped='find ${HOME}/tmp -name '"'*.sw[op]'"' -print'
+
+# ---
+# Utility Functions
 # ---
 
 # Common prompting routine for querying the user with defaults for Y/N.
