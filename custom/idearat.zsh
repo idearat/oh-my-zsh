@@ -11,11 +11,11 @@
 
 # do this first since it prepends to the path and we don't want anything in
 # front of ~/bin.local.
-eval "$(rbenv init -)" > /dev/null
+eval "$(rbenv init - zsh)" > /dev/null
 # now set it manually thank you very much so ~/bin.local can always override.
 export PATH="${HOME}/bin.local:/Users/ss/.nvm/v0.10.24/bin"
 export PATH="${PATH}:${HOME}/.rbenv/shims:/usr/local/bin"
-export PATH="${PATH}:/usr/bin/:/bin:/usr/sbin:/sbin:/opt/X11/bin"
+export PATH="${PATH}:/usr/bin:/bin:/usr/sbin:/sbin:/opt/X11/bin"
 
 export MANPATH=".:${HOME}/man:/usr/local/man:/usr/local/share/man:/usr/man:\
   /usr/bin/man:/usr/share/man:/usr/share/locale/en/man:/usr/X11R6/man"
@@ -711,5 +711,6 @@ alias hide_hidden="defaults write com.apple.Finder AppleShowAllFiles NO && killa
 # tibet
 # ---
 
+[[ -s ${HOME}/.localrc ]] && source ${HOME}/.localrc
 [[ -s ${HOME}/.tibetrc ]] && source ${HOME}/.tibetrc
 
