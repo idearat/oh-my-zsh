@@ -38,6 +38,7 @@ set -o vi
 export CLICOLOR=1
 export IGNOREEOF=1
 export LC_TYPE='en_US.UTF-8'
+export LESS=FRSX
 export LS_OPTIONS='--color=auto'
 export LSCOLORS='gxgxfxfxcxdxdxhbadbxbx'
 export TERM=xterm-256color
