@@ -209,6 +209,34 @@ function ask () {
     fi
 }
 
+# Dump a list of any submodules which may have detached heads. This is necessary
+# to avoid editing in a detached state, which effectively ensures your edits are
+# a complete loss.
+function detached () {
+  local IFS_COPY=$IFS
+  IFS=$'\n';
+  data=($(git submodule foreach 'git status --branch --porcelain'))
+  IFS=$IFS_COPY
+
+  # Sample output...but note git output breaks at ' '
+  # Entering 'vim/vim/bundle/vim-dispatch'
+  # ## master...origin/master
+  # Entering 'vim/vim/bundle/vim-fugitive'
+  # ## HEAD (no branch)
+  # Entering 'zsh/oh-my-zsh'
+  # ## master...origin/master
+  #  M custom/idearat.zsh
+
+  for line in $data; do
+    if [[ $line =~ "^Entering" ]]; then
+      repo=$line[11,-2]
+    fi
+    if [[ $line =~ "HEAD" ]]; then
+      echo $repo
+    fi
+  done
+}
+
 # Test for existence of a command. used for cmd-specific setups later.
 # NB: it appears ZSH does better at this than Bash when using 'which'.
 function exists () {
@@ -328,6 +356,14 @@ function root () {
       dir=`dirname $dir`
     fi
   done
+}
+
+# Update submodules, bringing then back onto master branch and sync'ing.
+function subup () {
+  echo 'Updating git submodules...'
+  git submodule init
+  git submodule update --recursive
+  git submodule foreach 'git fetch origin; git checkout master; git pull'
 }
 
 # Test for existence of a varable/export.
