@@ -10,10 +10,12 @@
 # ---
 
 # do this first since it prepends to the path and we don't want anything in
-# front of ~/bin.local.
-eval "$(rbenv init - zsh)" > /dev/null
-# now set it manually thank you very much so ~/bin.local can always override.
-export PATH="${HOME}/bin.local:/Users/ss/.nvm/v0.10.24/bin"
+# front of ~/bin.
+eval "$(rbenv init - zsh)" > /dev/null 2>&1
+source $(brew --prefix nvm)/nvm.sh > /dev/null 2>&1
+
+# now set it manually thank you very much so ~/bin can always override.
+export PATH="${HOME}/bin:/Users/ss/.nvm/v0.10.24/bin"
 export PATH="${PATH}:${HOME}/.rbenv/shims:/usr/local/bin"
 export PATH="${PATH}:/usr/bin:/bin:/usr/sbin:/sbin:/opt/X11/bin"
 
@@ -131,7 +133,7 @@ alias cdviz='cd ${PROJECT_HOME}/vizitd'
 # common destinations
 alias ..='cd ..'
 alias ...='cd ../../../'
-alias cdbin="cd ${HOME}/bin.local"
+alias cdbin="cd ${HOME}/bin"
 alias cddev="cd ${DEVL_HOME}"
 # NB: depends on having cloned into ${HOME}/.dotfiles.
 alias cdidearat='cd ${IDEARAT_HOME}'
@@ -451,7 +453,6 @@ fi
 # Node. Need this to install JS-related packages like JSHint etc.
 
 # test for nvm and initialize it if found
-[[ -s ${HOME}/.nvm/nvm.sh ]] && source ${HOME}/.nvm/nvm.sh
 if exists nvm; then
   nvm use v0.10.24 2 > /dev/null
 
