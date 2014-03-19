@@ -414,8 +414,7 @@ fi
 if exists git; then
   alias b="git branch"
   alias ba="git branch -a"
-  alias d='git difftool'
-  alias m='git mergetool'
+  alias d='git diff'
   alias s='git status --short --branch'
   alias t='git log --oneline --graph --all --date-order --first-parent --decorate=short'
 
