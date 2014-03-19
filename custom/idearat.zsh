@@ -225,7 +225,8 @@ function exists () {
 function findem () {
   find . -name .svn -prune -o -name .git -prune -o -name node_modules\
     -prune -o -name "*$1*" 2<&1 | grep -v '\.svn' | grep -v '\.git' |\
-    grep -v 'node_modules' | grep -v 'Permission denied' | grep -v '\.sw[op]' |\
+    grep -v 'node_modules' | grep -v 'thirdParty' |\
+    grep -v 'Permission denied' | grep -v '\.sw[op]' |\
     grep -v '\.class' | sed 's/\ /\\ /g'
 }
 
@@ -233,7 +234,7 @@ function findem () {
 # node_modules but allows for the first level so you can drill down into libs.
 # Run this in the directory you want searched.
 function jstags () {
-  find . -name '*.js' | grep -v 'node_modules/.*/node_modules' | \
+  find . -name '*.js' | grep -v 'node_modules/.*/node_modules' | grep -v '\.min\.js' |\
   ctags -L - -R --langdef=js --langmap=js:.js \
   --regex-js="/(,|(;|^)[ \t]*(var|let|([A-Za-z_$][A-Za-z0-9_$.]+\.)*))[ \t]*([A-Za-z0-9_$]+)[ \t]*=[ \t]*\{/\5/,object/" \
   --regex-js="/(,|(;|^)[ \t]*(var|let|([A-Za-z_$][A-Za-z0-9_$.]+\.)*))[ \t]*([A-Za-z0-9_$]+)[ \t]*=[ \t]*function[ \t]*\(/\5/,function/" \
