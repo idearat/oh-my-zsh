@@ -66,7 +66,20 @@ export TIBET_HOME="${TPI_HOME}/TIBET"
 export CODESWARM_HOME="${TPI_HOME}/CodeSwarm"
 export FIRSTCLASS_HOME="${PROJECT_HOME}/FirstClass"
 
-# environment management
+alias cdcs='cd ${CODESWARM_HOME}'
+alias cdfb='cd ${PROJECT_HOME}/fiscalball'
+alias cdfc='cd ${FIRSTCLASS_HOME}'
+alias cdtab='cd ${PROJECT_HOME}/tabmarks'
+alias cdviz='cd ${PROJECT_HOME}/vizitd'
+
+# ---
+# config files
+# ---
+
+alias cddot="cd ${HOME}/.dotfiles"
+alias cdvim='cd ${HOME}/.vim/bundle'
+alias cdzsh='cd ${HOME}/.oh-my-zsh/plugins'
+
 alias vimit="vi ${HOME}/.oh-my-zsh/custom/idearat.zsh"
 alias srcit="source ${HOME}/.zshrc"
 
@@ -74,19 +87,24 @@ alias vimdot="vi ${HOME}/.dotfiles/install.sh"
 alias vimgit="vi ${HOME}/.gitconfig"
 alias vimtmux="vi ${HOME}/.tmux.conf"
 
-# vi-related config management
 alias vimvi="vi ${HOME}/.vimrc.after"
 alias vimlocal="vi ${HOME}/.localrc"
 alias vimcolor="vi ${HOME}/.vim/bundle/idearat/colors/idearat"
 alias vimsyntax="vi ${HOME}/.vim/bundle/idearat/syntax/javascript.vim"
 
+# ---
 # listings
+# ---
+
 alias l='ls -Fh'
 alias la='ls -aFh'
 alias ll='ls -lFh'
 alias lla='ls -laFh'
 
-# common flag settings
+# ---
+# common flags
+# ---
+
 alias bc='bc -l'
 alias cls='clear; ls'
 alias cp='cp -i'
@@ -114,23 +132,10 @@ alias tail="tail -f"
 alias wget='wget -c'
 alias x="exit"  # don't want X-Quartz anyway ;)
 
-# common redirections
-alias more='less'
-alias vi='vim'
-
-# customization locations
-alias cddot="cd ${HOME}/.dotfiles"
-alias cdvim='cd ${HOME}/.vim/bundle'
-alias cdzsh='cd ${HOME}/.oh-my-zsh/plugins'
-
-# project root jumps
-alias cdcs='cd ${CODESWARM_HOME}'
-alias cdfb='cd ${PROJECT_HOME}/fiscalball'
-alias cdfc='cd ${FIRSTCLASS_HOME}'
-alias cdtab='cd ${PROJECT_HOME}/tabmarks'
-alias cdviz='cd ${PROJECT_HOME}/vizitd'
-
+# ---
 # common destinations
+# ---
+
 alias ..='cd ..'
 alias ...='cd ../../../'
 alias cdbin="cd ${HOME}/bin"
@@ -141,6 +146,10 @@ alias cdsrc='cd /usr/local/src'
 alias cdtmp="cd ${HOME}/tmp"
 alias cdtri="cd ${HOME}/Documents/SS\ Docs/Triathlon"
 alias cdusb="cd ${USB_ROOT}"
+
+# ---
+# unaliases
+# ---
 
 # Seriously, I'm never gonna use these, but I do use 3 and 5 for aliasing into
 # specific versions of TIBET.
@@ -155,8 +164,11 @@ unalias 8
 unalias 9
 
 # ---
-# Utility Aliases
+# utility Aliases
 # ---
+
+alias more='less'
+alias vi='vim'
 
 alias myip="curl ipv4.icanhazip.com"
 # Show time/date in easy form.
@@ -174,7 +186,7 @@ alias sizes='du -s *'
 alias swapped='find ${HOME}/tmp -name '"'*.sw[op]'"' -print'
 
 # ---
-# Utility Functions
+# utility functions
 # ---
 
 # Common prompting routine for querying the user with defaults for Y/N.
@@ -396,14 +408,16 @@ fi
 
 # Ack for common file types in web development.
 if exists ack; then
-  alias ackls='ack -l -s --ignore-dir="node_modules" --ignore-file="is:tags"'
-  alias ackall='ack -l -s --nolog --ignore-dir="node_modules" --ignore-file="is:tags"'
-  alias ackcss='ack -l -s --css --sass --less --ignore-dir="node_modules" --ignore-file="is:tags"'
-  alias ackhtml='ack -l -s --html --ignore-dir="node_modules" --ignore-file="is:tags"'
-  alias ackjs='ack -l -s --js --ignore-dir="node_modules" --ignore-file="is:tags"'
-  alias ackjson='ack -l -s --json --ignore-dir="node_modules" --ignore-file="is:tags"'
-  alias ackmd='ack -l -s --markdown --ignore-dir="node_modules" --ignore-file="is:tags"'
-  alias ackxml='ack -l -s --xml --ignore-dir="node_modules" --ignore-file="is:tags"'
+  alias ackls='ack -l -s --ignore-dir="thirdParty" --ignore-dir="node_modules"'
+  alias ackall='ack -l -s --nolog --ignore-dir="thirdParty" --ignore-dir="node_modules"'
+  alias ackcss='ack -l -s --css --sass --less --ignore-dir="thirdParty" --ignore-dir="node_modules"'
+  alias ackhtml='ack -l -s --html --ignore-dir="thirdParty" --ignore-dir="node_modules"'
+  alias ackjs='ack -l -s --js --ignore-dir="thirdParty" --ignore-dir="node_modules"'
+  alias ackjsish='ack -l -s --js --json --ignore-dir="thirdParty" --ignore-dir="node_modules"'
+  alias ackjson='ack -l -s --json --ignore-dir="thirdParty" --ignore-dir="node_modules"'
+  alias ackmd='ack -l -s --markdown --ignore-dir="thirdParty" --ignore-dir="node_modules"'
+  alias ackxml='ack -l -s --xml --ignore-dir="thirdParty" --ignore-dir="node_modules"'
+  alias ackvim='ack -l -s --vim --ignore-dir="thirdParty" --ignore-dir="node_modules"'
 else
   echo 'ack not found'
   echo 'install ack via:';echo
@@ -755,7 +769,7 @@ alias show_hidden="defaults write com.apple.Finder AppleShowAllFiles YES && kill
 alias hide_hidden="defaults write com.apple.Finder AppleShowAllFiles NO && killall Finder"
 
 # ---
-# tibet
+# other rc files
 # ---
 
 [[ -s ${HOME}/.localrc ]] && source ${HOME}/.localrc
