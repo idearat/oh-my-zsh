@@ -16,7 +16,7 @@ source $(brew --prefix nvm)/nvm.sh > /dev/null 2>&1
 
 # now set it manually thank you very much so ~/bin can always override.
 export PATH="${HOME}/bin:${HOME}/.nvm/v0.10.24/bin"
-export PATH="${PATH}:${HOME}/.rbenv/shims:/usr/local/bin"
+export PATH="${PATH}:${HOME}/.rbenv/shims:/usr/local/bin:/usr/local/bin/araxis"
 export PATH="${PATH}:/usr/bin:/bin:/usr/sbin:/sbin:/opt/X11/bin"
 
 export MANPATH=".:${HOME}/man:/usr/local/man:/usr/local/share/man:/usr/man:\
