@@ -9,8 +9,8 @@
 # path roots
 # ---
 
-# do this first since it prepends to the path and we don't want anything in
-# front of ~/bin.
+# do these first since it prepends to the path and we don't want anything in
+# front of ~/bin. we want to retain ultimate override ability.
 eval "$(rbenv init - zsh)" > /dev/null 2>&1
 source $(brew --prefix nvm)/nvm.sh > /dev/null 2>&1
 
@@ -774,4 +774,7 @@ alias hide_hidden="defaults write com.apple.Finder AppleShowAllFiles NO && killa
 
 [[ -s ${HOME}/.localrc ]] && source ${HOME}/.localrc
 [[ -s ${HOME}/.tibetrc ]] && source ${HOME}/.tibetrc
+
+# airline-promptline shell prompt file, if used.
+[[ -s ${HOME}/.shell_prompt.sh ]] && source ${HOME}/.shell_prompt.sh
 
