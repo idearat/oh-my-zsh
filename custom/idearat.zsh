@@ -46,6 +46,27 @@ export LSCOLORS='gxgxfxfxcxdxdxhbadbxbx'
 export TERM=xterm-256color
 
 # ---
+# zsh upgrades
+# ---
+
+autoload -U compinit
+compinit
+
+setopt completeinword
+
+zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}'
+zstyle ':completion:*:killall:*' command 'ps -u $USER -o cmd'
+
+autoload select-word-style
+select-word-style shell
+
+# extended globs
+setopt extendedglob
+unsetopt caseglob
+
+export REPORTTIME=10
+
+# ---
 # history setup
 # ---
 
