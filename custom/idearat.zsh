@@ -167,6 +167,7 @@ unalias 9
 # utility Aliases
 # ---
 
+alias todo="vim ~/Dropbox/todo.md"
 alias more='less'
 alias vi='vim'
 
