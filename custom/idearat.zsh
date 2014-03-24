@@ -72,7 +72,6 @@ export REPORTTIME=10
 
 HISTFILE=${HOME}/.zhistory
 HISTSIZE=SAVEHIST=10000
-setopt sharehistory
 setopt extendedhistory
 
 # ---
