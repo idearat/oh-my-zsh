@@ -150,6 +150,7 @@ alias psw='ps auxww'
 alias rm='rm -i'
 alias su='sudo -i'
 alias tail="tail -f"
+alias tmux="tmux -2"
 alias wget='wget -c'
 alias x="exit"  # don't want X-Quartz anyway ;)
 
