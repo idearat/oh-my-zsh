@@ -781,7 +781,7 @@ fi
 alias ssbod="pushd ${HOME}/dev/idearat/big7; ./ssbod.js; popd"
 function sslbs () {
   # note use of $@ here to send 'unrolled' params.
-  pushd ${HOME}/dev/idearat/big7; ./sslbs.js "$@"; popd;
+  pushd ${HOME}/dev/idearat/big7 > /dev/null 2>&1; ./sslbs.js "$@"; popd > /dev/null 2>&1;
 }
 
 # ---
