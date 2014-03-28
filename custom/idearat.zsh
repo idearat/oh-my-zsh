@@ -431,8 +431,8 @@ fi
 
 # Ack for common file types in web development.
 if exists ack; then
-  alias ackls='ack -l -s --ignore-dir="thirdParty" --ignore-dir="node_modules"'
-  alias ackall='ack -l -s --nolog --ignore-dir="thirdParty" --ignore-dir="node_modules"'
+  alias ackls='ack -l -s --ignore-dir="thirdParty" --ignore-dir="node_modules" --ignore-file=ext:map'
+  alias ackall='ack -l -s --nolog --ignore-dir="thirdParty" --ignore-dir="node_modules" --ignore-file=ext:map'
   alias ackcss='ack -l -s --css --sass --less --ignore-dir="thirdParty" --ignore-dir="node_modules"'
   alias ackhtml='ack -l -s --html --ignore-dir="thirdParty" --ignore-dir="node_modules"'
   alias ackjs='ack -l -s --js --ignore-dir="thirdParty" --ignore-dir="node_modules"'
